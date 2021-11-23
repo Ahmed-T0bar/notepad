@@ -1,0 +1,77 @@
+/* This file Will have The default CSS That is used on all pages */
+
+/* Global variables */
+:root {
+    --green: #5CDB95;
+    --white: #EDF5E1;
+    --blue: #145272;
+    --blue-2: #29627F;
+    --blue-3: #3C708B;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #000;
+    background-color: #f9f9f9;
+}
+h1, h2, h3 {
+    font-family: 'Raleway', sans-serif;
+}
+a,
+a:hover {
+    color: unset;
+    text-decoration: none;
+}
+ul, ol {list-style: none;}
+.Alert {
+    text-align: center;
+    width: 100%;
+    color: var(--white);
+    padding: 5px 0;
+    margin: 5px 0;
+}
+.Error { background-color: var(--bs-danger); }
+.Success { background-color: var(--bs-green); }
+.Weak { background-color: var(--bs-yellow); }
+.Not Bad { background-color: var(--bs-orange); }
+.Ok { background-color: var(--bs-cyan); }
+.clearfix {
+    overflow: auto;
+}
+.close {
+    display: none;
+}
+.open {
+    display: block;
+}
+/* Edit bootstrap */
+.mark {
+    background-color: var(--white);
+}
+.form-control {
+    background-color: var(--white);
+    border-color: var(--blue-3);
+    font-weight: 700;
+    font-size: 18px;
+}
+.form-control:focus {
+    color: var(--blue-2);
+    background-color: var(--white);
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgb(138 177 125 / 25%);
+}
+.bg-success { background-color: var(--green) !important;}
+/* Layout Page */
+footer {
+    background-color: var(--blue);
+    color: var(--green);
+    font-weight: 300;
+    font-size: 22px;
+    text-align: center;
+    padding: 20px 0;
+}
+.logo {
+    font-weight: 600;
+    color: #000;
+}

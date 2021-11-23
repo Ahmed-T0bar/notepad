@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/index.css') }}">{% endblock %}
+
+{% block body %}
+
+<nav>
+    <div class="container">
+        <h1>BNE</h1>
+        <ul>
+            <li><a href="login">Login</a></li>
+            <li><a href="signup">Sign Up</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <div class="container">
+        <h2>BNE</h2>
+        <h3>Best Notepad Ever.</h3>
+        <p>Our notepad made to make doing your todo list <span class="mark">easier and comforter</span>, it's your way to <spn class="mark">more productivity and more creativity</spn>... join us now</p>
+    
+        <img class="img-fluid" src="{{ url_for('static', filename='images/index.png') }}" style="width: 500px;" alt="Home">
+    </div>
+</main>
+
+{% endblock %}

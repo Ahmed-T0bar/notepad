@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/userform.css') }}">
+
+{% endblock %}
+
+{% block body %}
+<div class="userform clearfix">
+    <div class="userdata row justify-content-start">
+
+        <div class="left col d-flex align-items-center flex-column">
+            <h2 class="p-2">Welcome back <i class="far fa-smile-beam"></i></h2>
+
+            <form action="" method="POST" class="p-2" id="loginform">
+                <div class="Alert Success close" id="successmsg"></div>
+                
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+                {% if Error %}
+                    <div class="Alert Error">{{ Error }}</div>
+                {% endif %}
+                <button type="submit" class="btn btn-dark">Login</button>
+            </form>
+        </div>
+
+        <div class="right col d-flex align-items-center flex-column">
+            <div style="width: 50%;">
+                <h3 class="p-2">Are you facing a problem with your password?</h3>
+                <button type="submit" class="btn btn-dark"><a href="rest">Reset</a></button>
+
+                <hr>
+
+                <h3 class="p-2">Don't have an account?</h3>
+                <button type="submit" class="btn btn-dark"><a href="signup">Sign up</a></button>
+
+                <img class="img-fluid" src="{{ url_for('static', filename='images/login.png') }}" alt="login">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='js/userdata.js') }}"></script>
+    <script>
+        var msg = window.location.search.split("=")[1].replaceAll('+', ' ')
+        var successText = document.createTextNode(msg)
+        var successmsg = document.getElementById("successmsg")
+        if (successText.length > 1) {
+            successmsg.classList.remove("close")
+            successmsg.appendChild(successText)
+        }
+    </script>
+{% endblock%}

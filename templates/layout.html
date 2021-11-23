@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Site Icon(favison) -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+
+    <!-- Css Files -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;700&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/libraries/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/libraries/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block css %}{% endblock %}
+</head>
+<body>
+    {% block body %}{% endblock%}
+    
+    <footer>
+        <div class="container">
+            <a href="/" class="logo">BNE</a> Brand that everyone trust <i class="far fa-smile-wink"></i>.
+        </div>
+    </footer>
+
+    <!-- Js Files -->
+    <script src="{{ url_for('static', filename='js/libraries/all.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/libraries/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/libraries/bootstrap.min.js') }}"></script>
+    {% block js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,137 @@
+/* Start Dashboard Section */
+.dashboard {
+    min-height: 100vh;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.dashboard h1 {
+    color: var(--green);
+    font-weight: 600;
+}
+.dashboard h3 {
+    font-weight: 100;
+}
+.dashboard .add_btn {
+    float: right;
+    border-radius: 0;
+    width: 100px;
+    cursor: pointer;
+}
+table {
+    margin-top: 25px;
+}
+table thead {
+    color: var(--green);
+    background-color: var(--blue);
+}
+table tbody .lable {
+    padding: 1px 5px;
+    font-size: 12px;
+    color: var(--white);
+    background-color: var(#000);
+    font-weight: 700;
+    border-radius: 10px;
+    margin: 2px;
+}
+.hide_part_of_note {
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100px;
+    cursor: pointer;
+    transition: 300ms;
+}
+.hide_part_of_note:hover {
+    color: var(--green) !important;
+    font-weight: 600;
+}
+.view_part_of_note {
+    cursor: pointer;
+    color: var(--blue) !important;
+    font-weight: 700;
+}
+table tbody tr td button {
+    border: 1px solid #000;
+    border-radius: 50% !important;
+    padding: 5px 10px !important;
+    cursor: pointer;
+    margin: 0 !important;
+    font-size: 18px !important;
+    margin-left: 10px !important;
+}
+table tbody tr td button:first-of-type:hover {
+    color: var(--green);
+    border-color: var(--green);
+    box-shadow: 0 0 0 .25rem rgb(92 219 149 / 25%);
+
+}
+/* table tbody tr td button:last-of-type:hover {
+    color: var(--bs-danger);
+    border-color: var(--bs-danger);
+    box-shadow: 0 0 0 .25rem rgb(220 53 69 / 25%);
+    
+} */
+/* End Dashboard Section */
+
+/* Start Note Section */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--blue-3);
+    opacity: 0.5;
+    z-index: 1000;
+}
+.note .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    height: fit-content;
+    transform: translate(-50%, -50%);
+    background-color: var(--white);
+    border: 2px solid var(--blue-2);
+    z-index: 1001;
+    padding: 50px;
+}
+.note .content .close_btn,
+.note .content .close_open_btn {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 40px;
+    height: 40px;
+    padding-left: 13px;
+    padding-top: 4px;
+    line-height: 30px;
+    border-radius: 50%;
+    color: var(--blue-2);
+    border: 2px solid var(--blue-2);
+    background-color: var(--white);
+    cursor: pointer;
+}
+.note .content select {
+    margin-bottom: 10px;
+    max-width: 20%;
+    background-color: #f9f9f9;
+}
+.note .content select:focus {
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 10%);
+}
+.note .content textarea {
+    resize: none;
+    width: 100%;
+    background-color: #f9f9f9;
+}
+.note .content button {
+    margin: 10px 0;
+}
+/* End Note Section */
+/* Start Responsive */
+@media (max-width: 500px) {
+    table thead {
+        font-size: 12px;
+    }
+}
+/* End Responsive */

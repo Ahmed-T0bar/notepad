@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}Rest{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/userform.css') }}">{% endblock %}
+
+{% block body %}
+<div class="login">
+    <div class="dashboard row justify-content-start" id="dashboard">
+
+        <div class="left col d-flex align-items-center flex-column">
+            <h2 class="p-2">Write your email and we will send you code to rest your password.</h2>
+
+            <form action="" method="post" class="p-2">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <button type="submit" class="btn btn-dark">Rest</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

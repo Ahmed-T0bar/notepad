@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/dashboard.css') }}">{% endblock %}
+
+{% block body %}
+
+<!-- Section To display notes -->
+<section class="dashboard clearfix">
+    <div class="container">
+        <h1>Dashboard</h1>
+        <h3>Glad to see you again, {{ user_name }}</h3>
+        <p>"database is locked" DUE TO THIS PROBLEM THE PROJECT HAS STOPPED, -IT'S INCOMPLETE- IT'S MISSES UPDATE, DELETE BUTTONS AND THE REST PAGE</p>
+
+        <!-- Add Btn to open Add note Section -->
+        <button class="add_btn btn bg-success" type="submit" name="add"><i class="fas fa-plus"></i></button>
+        
+        <!-- Log_out Btn to remove session -->
+        <button class="add_btn btn bg-danger" type="submit" name="add" style="float: left;">
+            <a href="/logout">Log out</a>
+        </button>
+
+        <!-- The Table that will view data -->
+        <table class="usertable table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Num</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Label</th>
+                    <th scope="col">Note</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- |truncate(20, True, '...') NOT WORKING So, I USED JAVASCRIPT-->
+                {% for note in user_notes %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ note[2] }}</td>
+                    <td><span class="lable">{{ note[3] }}</span></td>
+                    <td class="table_note hide_part_of_note" id="note_{{ note[0] }}" onclick="viewNote('note_{{ note[0] }}')">{{ note[4] }}</td>
+                    <td>
+                        <button class="btn note_id">
+                            <a href="/dashboard/{{ note[0] }}">
+                                <i class="far fa-folder-open"></i>
+                            </a>
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+<!-- Section Add Note -->
+<section class="note add_note close">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="content">
+            <div class="close_btn"><i class="fas fa-times"></i></div>
+            <form action="" method="post" id="add_new_note">
+                <label for="note_status">Choose Note Status:</label>
+                <select class="form-select" name="note_status" id="note_status" aria-label="Default select example">
+                    <option selected>None</option>
+                    <option value="important">important</option>
+                    <option value="too early">too early</option>
+                    <option value="today">today</option>
+                </select>
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Add Note:</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="new_note" rows="10" placeholder="Add your new note"></textarea>
+                </div>
+                <button class="btn btn-dark" type="submit" name="addbtn" value="addbtn">Add</button>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- Section Open Note -->
+{% if open %}
+<section class="note open_note">
+
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="content">
+            <a href="/dashboard"><div class="close_open_btn"><i class="fas fa-times"></i></div></a>
+            <form action="" method="post">
+                <input type="hidden" name="note_id" value="clicked_note[0][0]" >
+                <label for="note_status">Choose Note Status:</label>
+                <select class="form-select" name="edit_note_status" id="note_status" aria-label="Default select example">
+                    <option value="none">None</option>
+                    <option value="important">important</option>
+                    <option value="too early">too early</option>
+                    <option value="today">today</option>
+                    <option selected value="{{ clicked_note[0][3] }}">{{ clicked_note[0][3] }}</option>
+                </select>
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Edit Note:</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="edit_note" rows="10" placeholder="Add your new note">{{ clicked_note[0][4] }}</textarea>
+                </div>
+                <button class="btn add_btn bg-warning" type="submit" name="updatebtn" value="updatebtn">Update</button>
+                <button class="btn add_btn bg-danger" style="float: right;" type="submit" name="deletebtn" value="deletebtn">Delete</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock%}

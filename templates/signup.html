@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/userform.css') }}">{% endblock %}
+
+{% block body %}
+<div class="userform clearfix">
+    <div class="userdata row justify-content-start">
+
+        <div class="left col d-flex align-items-center flex-column">
+            <h2 class="p-2">Happy to see you here!</h2>
+
+            <form action="" method="post" class="p-2">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="firstname" id="floatingInput" placeholder="example: Ahmed">
+                    <label for="floatingInput">First Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" name="confirmation" id="floatingconfirmation" placeholder="Confirmation">
+                    <label for="floatingconfirmation">Confirmation</label>
+                </div>
+                {% if Error %}
+                    <div class="Alert Error">{{ Error }}.</div>
+                {% endif %}
+                {% if check_strength %}
+                    <div class="Alert {{ check_strength }}">This Code is {{ check_strength }}</div>
+                {% endif %}
+                <button type="submit" class="btn btn-dark">Sign up</button>
+            </form>
+        </div>
+
+        <div class="right col d-flex align-items-center flex-column">
+            <div style="width: 50%;">
+                <h3 class="p-2">Already have an account?</h3>
+                <button type="submit" class="btn btn-dark"><a href="login">Login</a></button>
+
+                <img class="img-fluid" src="{{ url_for('static', filename='images/signup.png') }}" alt="signup">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='js/userdata.js') }}"></script>
+{% endblock%}
