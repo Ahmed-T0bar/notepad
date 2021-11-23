@@ -25,4 +25,4 @@ Notepad with Authentication, Authoriztion And CRUD
         - Sqlite3
 
 ## Video preview
-[BNE](https://choosealicense.com/licenses/mit/)
+[BNE](https://youtu.be/uaFXejAHX6k)
