@@ -1,5 +1,3 @@
-# TEST
-
 # BNE Project - Notepad
 
 Notepad with Authentication, Authoriztion And CRUD
